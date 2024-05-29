@@ -3,7 +3,7 @@ import setuptools
 
 ########################################################################################################################
 
-plugin_identifier = "dht22_nav_temp"
+plugin_identifier = "octoprint_dht22_nav_temp"
 plugin_package = "octoprint_%s" % plugin_identifier
 plugin_name = "OctoPrint-DHT22 Navbar Temp"
 plugin_version = "0.0.1"
