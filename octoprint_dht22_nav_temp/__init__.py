@@ -3,10 +3,7 @@ from octoprint.plugin import TemplatePlugin, AssetPlugin, SimpleApiPlugin
 import requests
 from bs4 import BeautifulSoup
 
-
-class DHT22Plugin(TemplatePlugin,
-                  AssetPlugin,
-                  SimpleApiPlugin):
+class DHT22Plugin(TemplatePlugin, AssetPlugin, SimpleApiPlugin):
 
     def get_template_configs(self):
         return [
@@ -15,7 +12,7 @@ class DHT22Plugin(TemplatePlugin,
 
     def get_assets(self):
         return {
-            "js": ["js/dht22.js"]
+            "js": ["js/dht22_nav_temp.js"]
         }
 
     def get_api_commands(self):
@@ -28,18 +25,19 @@ class DHT22Plugin(TemplatePlugin,
             response = requests.get("http://192.168.178.21/Tim.html")
             if response.status_code == 200:
                 soup = BeautifulSoup(response.content, 'html.parser')
-                temperature = soup.find(text="Temperatur:").find_next().strip().replace(',', '.')
-                humidity = soup.find(text="Luftfeuchtigkeit:").find_next().strip()
-                return {
-                    "temperature": float(temperature),
-                    "humidity": float(humidity)
-                }
-            else:
-                return {
-                    "temperature": None,
-                    "humidity": None
-                }
-
+                temperature_element = soup.find(text="Temperatur:").find_next()
+                humidity_element = soup.find(text="Luftfeuchtigkeit:").find_next()
+                if temperature_element and humidity_element:
+                    temperature = temperature_element.strip().replace(',', '.')
+                    humidity = humidity_element.strip()
+                    return {
+                        "temperature": float(temperature),
+                        "humidity": float(humidity)
+                    }
+            return {
+                "temperature": None,
+                "humidity": None
+            }
 
 __plugin_name__ = "DHT_Navbar_temp"
 __plugin_implementation__ = DHT22Plugin()

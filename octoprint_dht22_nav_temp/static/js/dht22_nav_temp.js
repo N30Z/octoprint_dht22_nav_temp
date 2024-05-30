@@ -21,5 +21,5 @@ $(function() {
     }
 
     updateNavbar();
-    setInterval(updateNavbar, 30000); // Update every 30 seconds
+    setInterval(updateNavbar, 5000); // Update every 5 seconds
 });
