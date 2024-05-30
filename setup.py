@@ -4,7 +4,7 @@ import setuptools
 plugin_identifier = "dht22_nav_temp"
 plugin_package = "octoprint_%s" % plugin_identifier
 plugin_name = "DHT_Navbar_temp"
-plugin_version = "0.0.1"
+plugin_version = "0.0.2"
 plugin_description = "Displays temperatures on navbar"
 plugin_author = "Jan Feddern"
 plugin_author_email = "jan_feddern@gmx.de"
