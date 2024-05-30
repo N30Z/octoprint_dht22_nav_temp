@@ -22,7 +22,7 @@ class DHT22Plugin(TemplatePlugin, AssetPlugin, SimpleApiPlugin):
 
     def on_api_command(self, command, data):
         if command == "get_data":
-            response = requests.get("http://192.168.178.57")
+            response = requests.get("http://192.168.178.21/Tim.html")
             if response.status_code == 200:
                 soup = BeautifulSoup(response.content, 'html.parser')
                 temperature = soup.find(text="Temperatur:").find_next().strip().replace(',', '.')
