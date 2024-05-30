@@ -3,7 +3,10 @@ from octoprint.plugin import TemplatePlugin, AssetPlugin, SimpleApiPlugin
 import requests
 from bs4 import BeautifulSoup
 
-class DHT22Plugin(TemplatePlugin, AssetPlugin, SimpleApiPlugin):
+
+class DHT22Plugin(TemplatePlugin,
+                  AssetPlugin,
+                  SimpleApiPlugin):
 
     def get_template_configs(self):
         return [
@@ -36,6 +39,7 @@ class DHT22Plugin(TemplatePlugin, AssetPlugin, SimpleApiPlugin):
                     "temperature": None,
                     "humidity": None
                 }
+
 
 __plugin_name__ = "DHT_Navbar_temp"
 __plugin_implementation__ = DHT22Plugin()
