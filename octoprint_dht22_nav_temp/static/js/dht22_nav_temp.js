@@ -1,4 +1,4 @@
-// js/dht22.js
+// js/dht22_nav_temp.js
 
 $(function() {
     function updateNavbar() {
@@ -21,5 +21,5 @@ $(function() {
     }
 
     updateNavbar();
-    setInterval(updateNavbar, 5000); // Update every 5 seconds
+    setInterval(updateNavbar, 1000 * parseInt(OctoPrint.coreui.settings.settings.plugins.dht22_nav_temp.refresh_rate));
 });
