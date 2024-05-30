@@ -1,11 +1,9 @@
 # coding=utf-8
 import setuptools
 
-########################################################################################################################
-
 plugin_identifier = "dht22_nav_temp"
 plugin_package = "octoprint_%s" % plugin_identifier
-plugin_name = "OctoPrint-DHT22 Navbar Temp"
+plugin_name = "DHT_Navbar_temp"
 plugin_version = "0.0.1"
 plugin_description = "Displays temperatures on navbar"
 plugin_author = "Jan Feddern"
@@ -13,25 +11,13 @@ plugin_author_email = "jan_feddern@gmx.de"
 plugin_url = "https://github.com/N30Z/octoprint_dht22_nav_temp"
 plugin_license = "AGPLv3"
 plugin_additional_data = []
-plugin_requires = []
+plugin_requires = ["requests", "beautifulsoup4"]
 
-### --------------------------------------------------------------------------------------------------------------------
-### More advanced options that you usually shouldn't have to touch follow after this point
-### --------------------------------------------------------------------------------------------------------------------
 additional_setup_parameters = {"python_requires": ">=3,<4"}
 
-# Additional package data to install for this plugin. The subfolders "templates", "static" and "translations" will
-# already be installed automatically if they exist. Note that if you add something here you'll also need to update
-# MANIFEST.in to match to ensure that python setup.py sdist produces a source distribution that contains all your
-# files. This is sadly due to how python's setup.py works, see also http://stackoverflow.com/a/14159430/2028598
-plugin_additional_data = []
-
-# Any additional python packages you need to install with your plugin that are not contained in <plugin_package>.*
 plugin_additional_packages = []
 
-# Any python packages within <plugin_package>.* you do NOT want to install with your plugin
 plugin_ignored_packages = []
-########################################################################################################################
 
 from setuptools import setup
 
